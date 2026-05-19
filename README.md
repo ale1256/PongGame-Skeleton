@@ -8,6 +8,10 @@ Un joc Pong 2D simplu, cu randare pe SDL2 folosind **Silk.NET**.
 ## Rulare
 dotnet run
 
+# Photo of the game
+<img width="831" height="833" alt="Screenshot 2026-05-19 at 20 35 37" src="https://github.com/user-attachments/assets/b8262152-ef8e-443e-b208-3b3d01781015" />
+
+
 # Controale
 
 - Player 1: `W` / `S`
