@@ -5,11 +5,14 @@ namespace TheAdventure;
 
 public static class Program
 {
-    public static async Task Main()
+    public static void Main()
     {
+        // IMPORTANT (macOS): SDL video/window calls must run on the main thread.
+        // Într-un console app, după un `await` continuarea poate rula pe ThreadPool, deci evităm `async Main`.
+
         // încarc si salvez BestRally
         using var saveStorage = new JsonFileStorage<SaveData>(AppPaths.GetSaveFilePath());
-        var save = await LoadSaveOrDefaultAsync(saveStorage).ConfigureAwait(false);
+        var save = LoadSaveOrDefaultAsync(saveStorage).GetAwaiter().GetResult();
         save = save with { LastPlayedUtc = DateTimeOffset.UtcNow };
 
         //lanț de task-uri de save 
@@ -224,7 +227,7 @@ public static class Program
 
         try
         {
-            await pendingSave.ConfigureAwait(false);
+            pendingSave.GetAwaiter().GetResult();
         }
         catch (SaveDataException ex)
         {

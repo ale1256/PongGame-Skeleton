@@ -1,4 +1,12 @@
-Gemini l-am folosit si sa imi dea cateva idei in legatura cu modul de abordare a acestui joc 
-Am folosit Gemini pentru unele parti din cod pe care am avut nevoie sa le imbunatatesc, sau in unele parti m-a ajutat la debug 
+# AI usage disclosure
 
+## Tools used
+- Google Gemini 
 
+## How it was used
+Brainstorming: idei pentru joc( power-ups, obstacole) și structură de game loop
+Debugging: ajutor la erori de compilare și runtime(am avut erori de rulare, sau a fost nevoie sa instalez extensii)
+Code suggestions: propuneri punctuale de implementare, apoi eu am integrat manual ce mi-a trebuit.
+
+## fisier in care am folosit AI cel mai mult
+MouseButtons.cs
