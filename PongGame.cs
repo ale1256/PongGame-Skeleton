@@ -3,6 +3,7 @@ using Rectangle = Silk.NET.Maths.Rectangle<int>;
 
 namespace TheAdventure;
 
+//ai generated
 public sealed class PongGame
 {
     //logica jocului Pong
@@ -111,7 +112,7 @@ public sealed class PongGame
     private float _powerUpY;
     private float _powerUpLifeLeft;
     private float _nextPowerUpIn = 2f;
-
+//end of ai generated
     public PongGame(int screenWidth, int screenHeight, int bestRallyAllTime = 0)
     {
         _bestRallyAllTime = Math.Max(0, bestRallyAllTime);
@@ -709,7 +710,7 @@ public sealed class PongGame
     {
         _powerUpActive = true;
         _powerUpType = _random.Next(0, 2) == 0 ? PowerUpType.Grow : PowerUpType.Shrink;
-        _powerUpLifeLeft = PoweSecondsUp;
+        _powerUpLifeLeft = PowerUpLifeSeconds;
 
         var cx = _screenWidth / 2f - PowerUpSize / 2f;
         var x = cx + _random.NextSingle() * 140f - 70f;
