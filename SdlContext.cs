@@ -1,3 +1,4 @@
+//in fisierul asra am modificat doar partea de selectie a librariei, in functie de arhitectura
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -43,18 +44,22 @@ public class SdlContext : INativeContext
         {
             _nativeLibrary = NativeLibrary.Load(Path.Combine(runtimesPath, platform + "-x86", "native", libraryName));
         }
-        else if (RuntimeInformation.OSArchitecture == Architecture.Arm64)
+        else if (RuntimeInformation.OSArchitecture == Architecture.Arm)
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                throw new PlatformNotSupportedException("ARM64 is not supported on Linux.");
+                throw new PlatformNotSupportedException("ARM is only supported on Linux.");
             }
 
             _nativeLibrary = NativeLibrary.Load(Path.Combine(runtimesPath, platform + "-arm", "native", libraryName));
         }
+        else if (RuntimeInformation.OSArchitecture == Architecture.Arm64)
+        {
+            _nativeLibrary = NativeLibrary.Load(Path.Combine(runtimesPath, platform + "-arm64", "native", libraryName));
+        }
         else
         {
-            throw new PlatformNotSupportedException("Only x64, x86, and ARM64 are supported.");
+            throw new PlatformNotSupportedException("Only x64, x86, ARM, and ARM64 are supported.");
         }
     }
 
@@ -93,4 +98,3 @@ public class SdlContext : INativeContext
         ReleaseUnmanagedResources();
     }
 }
-

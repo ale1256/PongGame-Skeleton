@@ -1,3 +1,4 @@
+//fisierul asta a ramas acelasi ca in skeleton
 namespace TheAdventure;
 
 public enum MouseButton : byte
