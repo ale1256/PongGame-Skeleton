@@ -2,13 +2,10 @@
 Un joc Pong 2D simplu, cu randare pe SDL2 folosind **Silk.NET**.
 
 # Cerințe
-
 - .NET SDK 10 (LTS)
 - La prima compilare/rulare e nevoie de internet pentru 'dotnet restore'
 
-# Rulare
-
-bash
+## Rulare
 dotnet run
 
 # Controale
@@ -36,3 +33,6 @@ dotnet run
 Jocul salvează automat un mic fișier JSON cu:
 - BestRally  – cel mai lung rally 
 - GamesPlayed – câte meciuri au fost terminate.
+
+# AI usage
+Am folosit Geminni pentru debug si implementarea unor algoritmi pentru care am avut nevoie de ajutor 
